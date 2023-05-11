@@ -3,7 +3,8 @@ defmodule MyAppWeb.StockLiveview do
 
   def mount(_params, _session, socket) do
 #    companies = MyModule.get_companies()
-    {:ok, assign(socket, :form, %{email: "", username: ""})}
+    form = %{email: "", username: ""}
+    {:ok, assign(socket, form: form)}
   end
 
   def render(assigns) do
@@ -26,10 +27,9 @@ defmodule MyAppWeb.StockLiveview do
   end
 
   def handle_event("validate", %{"email" => email, "username" => username}, socket) do
-    form = socket.assigns[:form]
-
-    dbg(form)
-    {:noreply, assign(socket, socket.assigns[:form][:email], email)}
+    socket_form = socket.assigns[:form]
+    dbg(socket_form)
+    {:noreply, assign(socket, form: %{email: email, username: username})}
   end
 
   # update socket state when receive message of new price
