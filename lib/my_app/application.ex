@@ -11,7 +11,7 @@ defmodule MyApp.Application do
       # Start the Telemetry supervisor
       MyAppWeb.Telemetry,
       # Start the Ecto repository
-      MyApp.Repo,
+#      MyApp.Repo,
       # Start the PubSub system
       {Phoenix.PubSub, name: MyApp.PubSub},
       # Start Finch
